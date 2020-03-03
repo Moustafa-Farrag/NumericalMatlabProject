@@ -1,0 +1,569 @@
+function varargout = ProjectGui(varargin)
+% PROJECTGUI MATLAB code for ProjectGui.fig
+%      PROJECTGUI, by itself, creates a new PROJECTGUI or raises the existing
+%      singleton*.
+%
+%      H = PROJECTGUI returns the handle to a new PROJECTGUI or the handle to
+%      the existing singleton*.
+%
+%      PROJECTGUI('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in PROJECTGUI.M with the given input arguments.
+%
+%      PROJECTGUI('Property','Value',...) creates a new PROJECTGUI or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before ProjectGui_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to ProjectGui_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help ProjectGui
+
+% Last Modified by GUIDE v2.5 14-May-2019 11:34:35
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @ProjectGui_OpeningFcn, ...
+                   'gui_OutputFcn',  @ProjectGui_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+end
+
+% --- Executes just before ProjectGui is made visible.
+function ProjectGui_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to ProjectGui (see VARARGIN)
+
+% Choose default command line output for ProjectGui
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes ProjectGui wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+end
+
+% --- Outputs from this function are returned to the command line.
+function varargout = ProjectGui_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+end
+
+
+function edit1_Callback(hObject, eventdata, handles)
+% hObject    handle to edit1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit1 as text
+%        str2double(get(hObject,'String')) returns contents of edit1 as a double
+end
+
+% --- Executes during object creation, after setting all properties.
+function edit1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+    set(handles.edit1, 'disable', 'off');
+end
+end
+
+
+function edit2_Callback(hObject, eventdata, handles)
+% hObject    handle to edit2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit2 as text
+%        str2double(get(hObject,'String')) returns contents of edit2 as a double
+end
+
+% --- Executes during object creation, after setting all properties.
+function edit2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+end
+
+
+function edit3_Callback(hObject, eventdata, handles)
+% hObject    handle to edit3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit3 as text
+%        str2double(get(hObject,'String')) returns contents of edit3 as a double
+end
+
+% --- Executes during object creation, after setting all properties.
+function edit3_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+end
+
+% --- Executes on selection change in popupmenu1.
+function popupmenu1_Callback(hObject, eventdata, handles)
+% hObject    handle to popupmenu1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns popupmenu1 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popupmenu1
+end
+
+% --- Executes during object creation, after setting all properties.
+function popupmenu1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popupmenu1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+end
+
+
+% --- Executes on button press in pushbutton2.
+function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+[filename, pathname] = uigetfile({'*.txt'},'File Selector');
+if ~ischar(filename)
+    return;  % User aborted the file selection
+end
+file = fullfile(pathname, filename);
+[fid, msg] = fopen(file, 'r');
+if fid == -1
+    error(msg);
+end
+allData = textscan(fid,'%s','Delimiter','\n');
+fclose(fid);
+len = size(allData{1});
+
+if len(1) == 4 || len(1) == 3
+    equ = allData{1}{1};
+    intervals = allData{1}{2};
+    if len(1) == 3
+       method = allData{1}{3};
+       maxIt = -1;
+    else
+      maxIt = allData{1}{3};
+      method = allData{1}{4};
+    end
+    
+   
+    
+    checker = 0;
+    try
+       f = str2func(['@(x)' equ]);
+    catch ME
+        warndlg('Check the format of the Equation again','Warning');
+    end    
+      
+    try 
+        f(1);
+        checker = checker + 1;
+    catch ME
+        warndlg('Check the format of the Equation again','Warning');
+    end
+    
+    % Handling intervals 
+    if checker == 1
+    interval = strsplit(intervals,' ');
+    
+    if all(ismember(interval{1}, '0123456789+-.eEdD'))
+        interval_1 = str2double(interval{1});
+        checker = checker + 1;
+    end
+    
+    if all(ismember(interval{2}, '0123456789+-.eEdD'))
+        interval_2 = str2double(interval{2});
+        checker = checker + 1;
+    end
+    
+    
+    if checker == 3
+    else 
+        warndlg('Check the format of the intervals again','Warning');
+    end
+    end
+    
+    if checker == 3
+    if maxIt == -1
+        checker = checker + 1;
+        req = 50;
+        epsilon  =  0.00001; 
+    else
+    if checker == 3
+    if all(ismember(max, '0123456789+-.eEdD'))
+        req = str2num(max);
+        if floor(req)==req
+            epsilon = 0.00001;
+        else 
+             req = 50;
+        end
+        checker = checker + 1;
+    else 
+        warndlg('Enter Max number of iterations or Epsilon in correct format','Warning');
+    end   
+    end
+    end   
+    end
+    
+    if checker == 4
+     logicPartOne( method, f, equ, interval_1, interval_2, req, epsilon,  handles);
+    end
+    
+else
+    warndlg('Missing data','Warning');
+end
+end
+    
+
+
+% --- Executes on button press in pushbutton3.
+function pushbutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+e = get(handles.edit1,'String');
+i = get(handles.edit2,'String');
+max = get(handles.edit3, 'String');
+epsilon = 0;
+
+if isempty(e) || isempty(i)
+    warndlg('All fields must be filled','Warning');
+else 
+    checker = 0;
+    try
+       f = str2func(['@(x)' e]);
+    catch ME
+        warndlg('Check the format of the Equation again','Warning');
+    end    
+      
+    try 
+        f(1);
+        checker = checker + 1;
+    catch ME
+        warndlg('Check the format of the Equation again','Warning');
+    end
+    
+    % Handling intervals 
+    if checker == 1
+    intervals = strsplit(i,' ');
+    
+    if all(ismember(intervals{1}, '0123456789+-.eEdD'))
+        interval_1 = str2num(intervals{1});
+        checker = checker + 1;
+    end
+    
+    if all(ismember(intervals{2}, '0123456789+-.eEdD'))
+        interval_2 = str2num(intervals{2});
+        checker = checker + 1;
+    end
+    
+    
+    if checker == 3
+    else 
+        warndlg('Check the format of the intervals again','Warning');
+    end
+    end
+    
+    if isempty(max)
+        checker = checker + 1;
+        req = 50;
+        epsilon  =  0.00001; 
+    else
+    if checker == 3
+    if all(ismember(max, '0123456789+-.eEdD'))
+        req = str2num(max);
+        if floor(req)==req
+            epsilon = 0.00001;
+        else 
+             epsilon = req;
+             req = 50;
+        end
+        checker = checker + 1;
+    else 
+        warndlg('Enter Max number of iterations or Epsilon in correct format','Warning');
+    end   
+    end
+    end
+    
+    if checker == 4
+    contents = get(handles.popupmenu1,'String'); 
+    popupmenu4value = contents{get(handles.popupmenu1,'Value')};
+    logicPartOne( popupmenu4value, f, e, interval_1, interval_2, req, epsilon,  handles);
+    end
+end
+    
+end
+
+
+% --- Executes during object creation, after setting all properties.
+function axes2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to axes2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: place code in OpeningFcn to populate axes2
+end
+
+
+% --- Executes on button press in pushbutton6.
+function pushbutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+e = get(handles.edit1,'String');
+i = get(handles.edit2,'String');
+max = get(handles.edit3, 'String');
+epsilon = 0;
+
+if isempty(e) || isempty(i)
+    warndlg('All fields must be filled','Warning');
+else 
+    checker = 0;
+    try
+       f = str2func(['@(x)' e]);
+    catch ME
+        warndlg('Check the format of the Equation again','Warning');
+    end    
+      
+    try 
+        f(1);
+        checker = checker + 1;
+    catch ME
+        warndlg('Check the format of the Equation again','Warning');
+    end
+    
+    % Handling intervals 
+    if checker == 1
+    intervals = strsplit(i,' ');
+    
+    if all(ismember(intervals{1}, '0123456789+-.eEdD'))
+        interval_1 = str2num(intervals{1});
+        checker = checker + 1;
+    end
+    
+    if all(ismember(intervals{2}, '0123456789+-.eEdD'))
+        interval_2 = str2num(intervals{2});
+        checker = checker + 1;
+    end
+    
+    
+    if checker == 3
+    else 
+        warndlg('Check the format of the intervals again','Warning');
+    end
+    end
+    
+    if isempty(max)
+        checker = checker + 1;
+        req = 50;
+        epsilon  =  0.00001; 
+    else
+    if checker == 3
+    if all(ismember(max, '0123456789+-.eEdD'))
+        req = str2num(max);
+        if floor(req)==req
+            epsilon = 0.00001;
+        else 
+             req = 50;
+        end
+        checker = checker + 1;
+    else 
+        warndlg('Enter Max number of iterations or Epsilon in correct format','Warning');
+    end   
+    end
+    end
+    
+    try 
+       sym2poly(f); 
+    catch ME
+        warndlg('Bierge-Vieta requires poly','Warning');
+        checker = checker - 1;
+    end
+    
+    if checker == 4
+        cla(handles.axes2);
+        reset(handles.axes2);
+        
+        set(handles.uitable4, 'Data', {});
+        set(handles.uitable4,'visible', 'off');
+        
+        set(handles.text7,'visible', 'off');
+        set(handles.text8,'visible', 'off');
+        set(handles.text10,'visible', 'off');
+        set(handles.text12,'visible', 'off');
+        
+        c = cell(1);
+        counter = 0;
+        
+        % Bisection
+        [Errors1 , ErrorsCell1 , X1 , ul ,t1 , it1 ] = bisection (f , interval_2 , interval_1, epsilon , req , handles.axes2 , 0 );
+        
+        T = table(X1, ErrorsCell1);
+        C = table2cell(T);
+        
+        c{1} = 'Bisection';
+        
+        counter = numel(X1);
+        
+        for j = 2 : numel(X1)
+            c{j} = '      ';
+        end
+        
+        % False-Position
+        [Errors2 , ErrorsCell2 , it2 , X2 , ul, t2] = falsi1 (f , interval_2  , interval_1 , epsilon , req , handles.axes2 , 0);
+        
+        c{counter + 1} = 'False-Position';
+        
+        T = table(X2, ErrorsCell2);
+        K = table2cell(T);
+        
+        C = [C ; K];
+        
+        for j = counter + 2 : numel(X1) + numel(X2)
+            c{j} = '      ';
+        end
+        
+        counter = counter + numel(X2);
+        
+        % Fixed Point
+        [X3 , it3 , Errors3 , ErrorsCell3 , type , t3] = fixedPoint(interval_1,epsilon,req,e , handles.axes2 ,0);
+        c{counter + 1} = 'Fixed Point';
+        T = table(X3, ErrorsCell3);
+        K = table2cell(T);
+        
+        C = [C ; K];
+        
+        for j = counter + 2 : numel(X1) + numel(X2) + numel(X3)
+            c{j} = '      ';
+        end
+        
+        counter = counter + numel(X3);
+        
+        % Newton-Raphson
+        [ErrorsCell4 , Errors4 , X4 , it4 , t4]= newtRaph(interval_1,epsilon,req,e , handles.axes2 , 0);
+        
+        c{counter + 1} = 'Newton-Raphson';
+        
+        T = table(X4, ErrorsCell4);
+        K = table2cell(T);
+        
+        C = [C ; K];
+        
+        for j = counter + 2 : numel(X1) + numel(X2) + numel(X3) + numel(X4)
+            c{j} = '      ';
+        end
+        
+        counter = counter + numel(X4);
+        
+        % Secant
+        [Errors5 , ErrorsCell5 , result , it5 , X5, t5] = Secant(f, interval_1, interval_2, epsilon, req, handles.axes2, 0);
+        
+        c{counter + 1} = 'Secant';
+        
+        T = table(X5, ErrorsCell5);
+        K = table2cell(T);
+        
+        C = [C ; K];
+        
+        for j = counter + 2 : numel(X1) + numel(X2)+ numel(X3) + numel(X4) + numel(X5)
+            c{j} = '      ';
+        end
+        
+        counter = counter + numel(X5);
+        
+        % Bierge-Vieta
+        [ X6 , it6 , Errors6 , ErrorsCell6 , X6 , t6 ] = Brige_Vieta(f , interval_1 , epsilon , req);
+        
+        c{counter + 1} = 'Bierge-Vieta';
+        
+        T = table(X6, ErrorsCell6);
+        K = table2cell(T);
+        
+        C = [C ; K];
+        
+        for j = counter + 2 : numel(X1) + numel(X2)+ numel(X3) + numel(X4) + numel(X5) + numel(X6)
+            c{j} = '      ';
+        end
+        
+        counter = counter + numel(X6);
+        
+        set(handles.uitable4,'visible', 'on');
+        set(handles.uitable4,'Data',C, 'RowName', c);
+        
+        compareX(X1, it1 , X2 , it2 , X3 , it3 , X4 , it4 , X5 , it5, 0, 0);
+        
+        compareError(Errors1, it1, Errors2, it2, Errors3, it3, Errors4, it4, Errors5, it5, 0, 0);
+        
+        C = [c.' , C];
+        
+        OutputAllMethods( cell2table(C), it1, it2, it3, it4, it5, 0, t1, t2, t3, t4, t5, 0 );
+        
+    end
+end
+end
+
+
+% --- Executes during object creation, after setting all properties.
+function text10_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to text10 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+end
+
+
+% --- Executes during object creation, after setting all properties.
+function text12_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to text12 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+end

@@ -1,0 +1,70 @@
+function [result , iter , errors , errorsCell , type , time ]=fixedPoint(x0,es,maxIter,eqn, hAxes ,draw)
+ equation = strcat('@(x)', eqn,'+x');
+ f = str2func(equation);
+ df = diff(sym(f));
+ d = matlabFunction(df);
+ disp(d(x0));
+ if abs(d(x0))<1 && d(x0)>0
+     type ='converge, monotonic';
+ elseif abs(d(x0)) <= 1&&d(x0) < 0
+      type='converge, oscillate' ;
+ elseif abs(d(x0)) > 1 && d(x0)>0
+      type='diverge, monotonic' ;
+ elseif abs(d(x0))>1 && d(x0)<0
+      type='diverge, oscillate' ;
+ end    
+ errors=magic(1);
+ result=magic(1);
+ xr=x0;
+ result(1,1)=xr;
+ iter=0;
+ errors(1,1)=0;
+ tic;
+for i=1:1:maxIter
+    xr_old=xr;
+    xr=f(xr_old); 
+    result(i+1,1)=xr;
+    if(xr~=0)
+        ea=abs((xr-xr_old)/xr)*100;
+    end
+    errors(1,i+1)=ea;
+    iter=i;
+    if (ea<es)
+        break;
+    end
+end
+time = toc ;
+errorsCell = num2cell(errors);
+errorsCell{1 , 1} = 'N/A' ;  
+if (draw == 1)
+lowest = min(result(:,1)) - .5;
+largest = max(result(:,1))+ .5;
+syms x
+hold on
+fplot(hAxes, matlabFunction(f(x)) , [lowest , largest] )  
+ y=x;
+ hold on
+ fplot(hAxes, matlabFunction(y),[lowest, largest] )
+ hold on 
+ plot(hAxes, [lowest, largest ] ,[ 0, 0]);
+ p=f(result(1,1));
+ hold on
+ plot(hAxes, [result( 1,1) result(1,1)],[0 p],'r')
+ hold on
+ plot(hAxes, [p result(1,1)],[p p],'g--')
+ for i=1:1:iter
+ if(i>1)
+ p=f(result(i,1));
+ hold on
+ plot(hAxes, [result( i,1) result(i,1)],[subs(y,x,result(i,1)) p],'r')
+ hold on
+ plot(hAxes, [p result(i,1)],[p p],'g--')
+ end
+    %hold on
+    %plot([result(2,i+1) result(2,i+1)],[y(1) y(2)],'g')
+ end
+end
+errors = errors.';
+errorsCell = errorsCell.';
+
+end
